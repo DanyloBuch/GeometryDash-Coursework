@@ -22,6 +22,9 @@ namespace Geometry_Dash.GameLogic
         private float jumpElapsed = 0f;
         private float rotationAngle = 0;
 
+        // Додаємо константу замість "магічного" рядка
+        private const string PlayerResourcePath = "Resources/player_block.png";
+
         public Player(Control.ControlCollection controls, Size clientSize)
         {
             Box = new PictureBox
@@ -36,7 +39,8 @@ namespace Geometry_Dash.GameLogic
 
             try
             {
-                originalImage = new Bitmap("Resources/player_block.png");
+                // Використовуємо константу
+                originalImage = new Bitmap(PlayerResourcePath); 
                 Box.Image = originalImage;
             }
             catch
