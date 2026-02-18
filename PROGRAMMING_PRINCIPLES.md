@@ -12,7 +12,7 @@
 ### 2. DRY (Don't Repeat Yourself)
 **Опис**: Цей принцип забороняє дублювання коду. Замість того, щоб налаштовувати базові властивості для кожного типу перешкоди окремо, я створив базовий клас `Obstacle`. Клас `Spike` успадковує цю логіку, використовуючи конструктор `base()`, що дозволяє уникнути повторного написання коду для створення об'єктів.
 * **Приклад у коді**: Використання успадкування для спільної логіки перешкод.
-* **Посилання**: [Spike.cs](https://github.com/DanyloBuch/-/blob/main/Spike.cs#L8-L10) та [Obstacle.cs](URL_ВАШОГО_РЕПОЗИТОРІЮ/blob/main/Geometry_Dash/GameLogic/Obstacle.cs)
+* **Посилання**: [Spike.cs](https://github.com/DanyloBuch/-/blob/main/Spike.cs#L8-L10) та [Obstacle.cs](https://github.com/DanyloBuch/-/blob/main/Obstacle.cs#L6-L19)
 
 ---
 
