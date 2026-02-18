@@ -27,7 +27,7 @@ namespace Geometry_Dash.GameLogic
         private float rotationAngle = 0;
 
         // Додаємо константу замість "магічного" рядка
-       
+        private const string PlayerImagePath = "Resources/player_block.png";
 
         public Player(Control.ControlCollection controls, Size clientSize)
         {
@@ -50,7 +50,7 @@ namespace Geometry_Dash.GameLogic
             catch
             {
                 MessageBox.Show("Не вдалося завантажити player_block.png", "Помилка ресурсу");
-                originalImage = new Bitmap(40, 40); // створення порожнього
+                originalImage = new Bitmap(PlayerImagePath);
                 Box.BackColor = Color.Red; // 🟥 Тимчасовий колір для тесту
 
                 Box.Image = originalImage; // НЕ встановлюй червоний фон!
