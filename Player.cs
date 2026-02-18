@@ -17,6 +17,10 @@ namespace Geometry_Dash.GameLogic
         private readonly float gravity = 0.5f;
         private readonly float jumpStrength = -8f;
 
+        private const float JumpDurationTicks = 30f; // Тривалість анімації стрибка в тіках
+        private const float FullRotationAngle = 270f; // Максимальний кут повороту під час стрибка
+        private const float RotationStepAngle = 30f;  // Крок повороту для вибору кадру
+
         private readonly Bitmap originalImage;
         private List<Bitmap> rotationFrames = new();
         private float jumpElapsed = 0f;
@@ -87,7 +91,7 @@ namespace Geometry_Dash.GameLogic
             if (!ShouldRotate) return;
 
             jumpElapsed++;
-            float progressJump = jumpElapsed / 30f;
+            float progressJump = jumpElapsed / JumpDurationTicks;
 
             if (progressJump >= 1f || IsGrounded)
             {
@@ -96,7 +100,7 @@ namespace Geometry_Dash.GameLogic
             }
             else
             {
-                rotationAngle = 270f * progressJump;
+                rotationAngle = FullRotationAngle * progressJump; 
                 RotateImage(rotationAngle);
             }
         }
@@ -108,7 +112,8 @@ namespace Geometry_Dash.GameLogic
 
         private void RotateImage(float angle)
         {
-            int index = Math.Min((int)(angle / 30f), rotationFrames.Count - 1);
+            // Використовуємо константу замість 30f
+            int index = Math.Min((int)(angle / RotationStepAngle), rotationFrames.Count - 1);
             Box.Image = rotationFrames[index];
         }
 
